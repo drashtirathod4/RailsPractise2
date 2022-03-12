@@ -1,0 +1,31 @@
+<% if flash[:errors] %>
+    <% flash[:errors].each do |error| %>
+        <p style = "color:red"><%= error %></p>
+    <% end %>
+<% end %>
+  
+<%= form_for @product do |p| %>
+    <table cellpadding="15px">
+        <tr>
+            <td><%= p.hidden_field :user_id %></td>
+        </tr>
+        <tr>
+            <td><%= p.label :name %></td>
+            <td><%= p.text_field :name %></td>
+        </tr>
+        <tr>
+            <td><%= p.label :description %></td>
+            <td><%= p.text_area :description %></td>
+        </tr>
+        <tr>
+            <td><%= p.label :price %></td>
+            <td><%= p.number_field :price %></td>
+        </tr>
+        <tr>
+            <td><%= p.submit %></td>
+        </tr>
+        <tr>
+            <td><b><%= link_to "Back", products_path %></b></td>
+        </tr>
+    </table>
+<% end %>

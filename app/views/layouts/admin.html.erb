@@ -1,0 +1,16 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Admin</title>
+  </head>
+
+  <body align = "center">
+    <p class="notice" style="color: red"><%= notice %></p>
+    <p class="alert" style="color: red"><%= alert %></p>
+    <h1>Admin Page</h1><hr>
+    <%= yield %>
+    <% if can? :manage, Product %>
+      <%= link_to "Go to Products Path", products_path %>
+    <% end %>
+  </body>
+</html>

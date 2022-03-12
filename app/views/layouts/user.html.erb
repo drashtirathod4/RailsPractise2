@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>User</title>
+  </head>
+
+  <body align = "center">
+    <p class="notice" style="color: red"><%= notice %></p>
+    <p class="alert" style="color: red"><%= alert %></p>
+    <h1>User Page</h1><hr>
+    
+    <%= yield %>
+    
+
+    <h1>List of Products</h1><br>
+    
+    <table cellpadding="15px" border="1px" align="center">
+      <tr>
+        <th>Product Name</th>
+        <th>Description</th>
+        <th>Price</th>
+        <th>View</th>
+      </tr>
+      <% Product.all.each do |product| %>
+        <tr>
+          <td><b><%= product.name %></b></td>
+          <td><%= product.description %></td>
+          <td><%= product.price %></td>
+          <td>
+            <% if can? :read, Product %>
+              <%= button_to "View", product_path(product), method: :get %>
+            <% end %>
+          </td>
+          <td>
+            <% if can? :create, Product %>
+              <%= button_to "Create Product", new_product_path, method: :post %>
+            <% end %>
+          </td>
+        </tr>
+      <% end %>
+    </table><br>
+  </body>
+</html>

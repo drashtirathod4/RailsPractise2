@@ -1,0 +1,51 @@
+<center>
+  <h2>Sign up</h2>
+
+  <%= form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
+    <%= render "devise/shared/error_messages", resource: resource %>
+
+    <div class="field">
+      <b><%= f.label :email %><br /></b>
+      <%= f.email_field :email, autofocus: true, autocomplete: "email" %>
+    </div><br />
+
+    <div class="field">
+        <b><%= f.label :name %><br /></b>
+        <%= f.text_field :name, autofocus: true, autocomplete: "name" %>
+      </div><br />
+
+    <div class="field">
+      <b><%= f.label :phone %><br /></b>
+      <%= f.number_field :phone, autofocus: true, autocomplete: "phone" %>
+    </div><br />
+
+    <div class="field">
+      <b><%= f.label :role %><br /></b>
+      <%= f.select :role, ['Admin', 'User'], autofocus: true, autocomplete: "role" %>
+    </div><br />
+
+    <div class="field">
+      <b><%= f.label :address %><br /></b>
+      <%= f.text_area :address, autofocus: true, autocomplete: "address" %>
+    </div><br />
+
+    <div class="field">
+      <b><%= f.label :password %></b>
+      <% if @minimum_password_length %>
+      <em>(<%= @minimum_password_length %> characters minimum)</em>
+      <% end %><br />
+      <%= f.password_field :password, autocomplete: "new-password" %>
+    </div><br />
+
+    <div class="field">
+      <b><%= f.label :password_confirmation %><br /></b>
+      <%= f.password_field :password_confirmation, autocomplete: "new-password" %>
+    </div><br />
+
+    <div class="actions">
+      <%= f.submit "Sign up" %>
+    </div><br />
+  <% end %>
+
+  <%= render "devise/shared/links" %>
+</center>
