@@ -1,0 +1,11 @@
+<center>
+    <h1>Welcome</h1>
+    <% if user_signed_in? %>
+        <h1><%= current_user.email %></h1>
+        <%= button_to "Logout", destroy_user_session_path, method: :delete %><br><br>
+        <%= button_to "Edit Profile", edit_user_registration_path, method: :get %><br><br>
+    <% else %>
+        <%= button_to "Signup", new_user_registration_path, method: :get %><br><br>
+        <%= button_to "Login", new_user_session_path, method: :get %>
+    <% end %>
+</center>
