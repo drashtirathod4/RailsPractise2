@@ -1,0 +1,27 @@
+<center>
+    <h1>List of Products</h1><br>
+    <table cellpadding="15px" border="1px">
+        <tr>
+            <th>Product Name</th>
+            <th>Description</th>
+            <th>Price</th>
+            <th>View</th>
+            <th>Edit</th>
+            <th>Remove</th>
+        </tr>
+        <% @products.each do |product| %>
+            <tr>
+                <td><b><%= product.name %></b></td>
+                <td><%= product.description %></td>
+                <td><%= product.price %></td>
+                <td><%= button_to "View", product_path(product), method: :get %></td>
+                <td><%= button_to "Edit", edit_product_path(product), method: :get %></td>
+                <td><%= button_to 'Remove', product_path(product), method: 'delete' %></td>
+            </tr>
+        <% end %>
+        <tr>
+            <td colspan="7" align="center"><%= button_to "Add new Product", new_product_path, method: :get %></td>
+        </tr>
+    </table><br>
+    <b><%= link_to "Back ", root_path %></b>
+</center>

@@ -1,0 +1,19 @@
+<center>
+    <h1>Product Details</h1><br>
+    <h2><%= @product.name %></h2><br>
+    <table cellpadding="14px">
+        <tr>
+            <td><b>name : </b></td>
+            <td><%= @product.name %></td>
+        </tr>
+        <tr>
+            <td><b>Description : </b></td>
+            <td><%= @product.description %></td>
+        </tr>
+        <tr>
+            <td><b>Price : </b></td>
+            <td><%= @product.price %></td>
+        </tr>
+    </table><br>
+    <b><%= link_to "Back", products_path %></b>
+</center>
